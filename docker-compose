@@ -23,8 +23,4 @@ services:
       - selenoid
     ports:
       - "8080:8080"
-<<<<<<< HEAD
     command: ["--selenoid-uri", "http://selenoid:4444"]
-=======
-    command: ["--selenoid-uri", "http://selenoid:4444"]
->>>>>>> f8c8cdd33620e4ef5a7dc5198249767a7d435d1a
