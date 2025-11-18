@@ -2,13 +2,13 @@ version: '3'
 
 services:
   selenoid:
+    image: selenoid/vnc_chrome:128.0
     network_mode: bridge
-    image: aerokube/selenoid:latest-release
     volumes:
-      - "./config:/etc/selenoid"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "./video:/opt/selenoid/video"
-      - "./logs:/opt/selenoid/logs"
+      - ./config:/etc/selenoid
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./video:/opt/selenoid/video
+      - ./logs:/opt/selenoid/logs
     environment:
       - OVERRIDE_VIDEO_OUTPUT_DIR=$TASK_FOLDER/video
     command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs"]
@@ -17,7 +17,7 @@ services:
       - "4444:4444"
 
   selenoid-ui:
-    image: "aerokube/selenoid-ui"
+    image: aerokube/selenoid-ui
     network_mode: bridge
     links:
       - selenoid
