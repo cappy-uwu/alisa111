@@ -22,9 +22,9 @@ jobs:
           java-version: 21
           cache: maven
 
-      - name: Pull Selenoid Chrome 142
+      - name: Pull Selenoid Chrome (latest available)
         run: |
-          docker pull selenoid/vnc_chrome:142.0
+          docker pull selenoid/vnc_chrome:139.0
           docker pull selenoid/video-recorder:latest-release
 
       - name: Start Selenoid
